@@ -3,7 +3,27 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+const path = require("path")
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "gatsby.js bug repo",
+  },
+  plugins: [
+    // Markdown
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "markdown-pages",
+        path: path.resolve(__dirname, "src"),
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        name: "markdown-pages",
+        path: path.resolve(__dirname, "src"),
+      },
+    },
+  ],
 }
